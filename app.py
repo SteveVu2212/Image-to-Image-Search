@@ -38,6 +38,7 @@ def load_features(features_filename, mapping_filename):
     print ("Loading features...")
     images_features = np.load('%s.npy' % features_filename)
     with open('%s.json' % mapping_filename) as f:
+        index_str = json.load(f)
         file_index = {int(k): str(v) for k, v in index_str.items()}
     return images_features, file_index
 
