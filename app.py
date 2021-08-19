@@ -13,14 +13,6 @@ import time
 import h5py
 import numpy as np
 
-import logging
-import os
-import json
-import time
-
-import h5py
-import numpy as np
-
 from annoy import AnnoyIndex
 from tensorflow.keras import optimizers
 from tensorflow.keras.layers import Dense, BatchNormalization, Activation, Dropout
@@ -43,11 +35,11 @@ def load_features(features_filename, mapping_filename):
     return images_features, file_index
 
 
-path1 = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Code'
+# path1 = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Code'
 
+path1 = '/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/Code'
 
 images_features, file_index = load_features(path1, path1)
-
 
 
 def get_class_weights_from_vgg(save_weights=False, filename='class_weights'):
@@ -88,8 +80,9 @@ def index_features(features, n_trees=1000, dims=4096, is_dict=False):
     return feature_index
 
 
-path2 = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report'
+# path2 = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report'
 
+path2 = '/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259'
 
 weighted_features, file_index = load_features(path2, path2)
 
@@ -97,8 +90,9 @@ weighted_features, file_index = load_features(path2, path2)
 weighted_index = index_features(weighted_features)
 
 
-input_train = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Data/TrainingData/class-điện thoại/465.jfif'
+# input_train = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Data/TrainingData/class-điện thoại/465.jfif'
 
+input_train = '/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/Data/TrainingData/class-cặp sách/43.jfif'
 
 def get_index(input_image, file_mapping):
     for index, file in file_mapping.items():
@@ -168,8 +162,9 @@ def load_paired_img_wrd(folder):
 
 
 
-val_path = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Data/ValidationData'
+# val_path = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Data/ValidationData'
 
+val_path = '/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/Data/ValidationData'
 
 img, img_paths = load_paired_img_wrd(val_path)
 
@@ -263,7 +258,10 @@ st.write('Tải dữ liệu từ shopee')
 
 from PIL import Image
 
-img = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Trainingdata.png')
+# img = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Trainingdata.png')
+
+img = Image.open('/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/images/Trainingdata.png')
+
 st.image(img, width =500, caption = 'Số lượng ảnh chia theo class')
 
 
@@ -272,12 +270,18 @@ st.subheader('2. Indexing hình ảnh')
 st.write('Sử dụng pre-trained model VGG16 để tạo image features, lấy penultimate layer')
 
 img1 = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Images for report/VGG16.jpeg')
+
+img1 = Image.open('/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/images/VGG16.jpeg')
+
 st.image(img1, width =1000, caption = 'Pre-trained model: VGG16')
 
 
 st.write('Hình ảnh image_features tại đây')
 
-img2 = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Images for report/Image embeddings.png')
+# img2 = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Images for report/Image embeddings.png')
+
+img2 = Image.open('/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/images/Image embeddings.png')
+
 st.image(img2, width =1000, caption = 'Image embeddings')
 
 
@@ -288,12 +292,18 @@ st.subheader('3. Sử dụng embeddings to search through images')
 
 st.write('Input images tại đây')
 
-img3 = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Images for report/input_train.png')
+# img3 = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Images for report/input_train.png')
+
+img3 = Image.open('/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/images/input_train.png')
+
 st.image(img3, width =300, caption = 'Input image')
 
 st.write('Output images tại đây')
 
-img4 = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Images for report/Output.png')
+# img4 = Image.open('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Report/Images for report/Output.png')
+
+img4 = Image.open('/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/images/Output.png')
+
 st.image(img4, width =1000, caption = 'Output images')
 
 
@@ -308,7 +318,8 @@ uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 if uploaded_file is not None:
 
     image = Image.open(uploaded_file)
-    image.save('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Data/ValidationData/images/demo.jpg')
+    # image.save('/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Data/ValidationData/images/demo.jpg')
+    image.save('/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/Data/ValidationData/demo1.jpg')
     st.image(image, caption='Uploaded Image.', use_column_width=True)
     
 #     st.write(uploaded_file)
@@ -316,7 +327,8 @@ if uploaded_file is not None:
 st.subheader('2. Output')
 if st.button('Run'):
     
-    input_path = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Data/ValidationData/images/demo.jpg'
+    # input_path = '/Users/mac/Documents/Machine Learning/Machine Learning Courses/Courses at Vietnam National University/10. Capstone project/Final project/Data/ValidationData/images/demo.jpg'
+    input_path = '/Users/mac/Documents/5. Machine Learning & Deep Learning/4. Machine Learning Courses/3. Courses at Vietnam National University/VuAnhTu_CapstoneProject_K259/Image-to-Image-Search/Data/ValidationData/demo1.jpg'
     search_key1 = get_index(input_path, file_index)
     results = search_index_by_key(search_key1, weighted_index, file_index)
     for i in range(len(results)):
