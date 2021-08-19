@@ -4,6 +4,8 @@ This is my first Machine Learning project when I come across the fact that image
 
 # 2. Image-to-Image Search
 
+![](https://github.com/SteveVu2212/Image-to-Image-Search/blob/main/images/framework.png)
+
 # 3. References
 
 [1] Semantic search, http://insight.streamlit.io/0.13.3-8ErS/index.html?id=QAKzY9mLjr4WbTCgxz3XBX, 09/01/2020
