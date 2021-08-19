@@ -340,3 +340,4 @@ if st.button('Run'):
             img_ = np.concatenate((img_,img), axis=1)
     st.image(img_, caption='Uploaded Image.', use_column_width=True)
 
+
