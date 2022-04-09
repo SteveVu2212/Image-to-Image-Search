@@ -1,6 +1,6 @@
 # 1. Introduction
 
-This is my first Machine Learning project when I come across the fact that image retrieval is importantly supplementary to keywords search engine. The project focuses on replicating a semantic image search. I start by crawling real-time data from one of three largest e-commerce website before employing a pre-trained model to build up an image-to-image search. At the end, the outcome of the project is presented by Streamlit.
+The project focuses on replicating a semantic image search. I start by crawling real-time data from one of three largest e-commerce website before employing a pre-trained model to build up an image-to-image search. At the end, the outcome of the project is presented by Streamlit.
 
 # 2. Image-to-Image Search
 
